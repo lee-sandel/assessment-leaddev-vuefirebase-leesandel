@@ -9,8 +9,9 @@
         <v-card-text>
           <div class="d-flex">
             <v-text-field v-model="room.title" label="Room Name" class="pr-4" @input="titleChange"/>
-            <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
+            <v-text-field type="number" v-model="room.capacity" label="Room Capacity"/>
           </div>
+          <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
