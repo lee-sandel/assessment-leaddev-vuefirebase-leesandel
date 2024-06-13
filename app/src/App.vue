@@ -3,8 +3,8 @@
     <v-app-bar app color="primary" dark>
       <v-toolbar-title>Vanti Lead Dev Assessment - Lee Sandel</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn class="mr-2" text>Room Bookings</v-btn>
-      <v-btn text>Settings</v-btn>
+      <v-btn class="mr-2" text to="/">Room Bookings</v-btn>
+      <v-btn text to="/settings/rooms">Settings</v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
