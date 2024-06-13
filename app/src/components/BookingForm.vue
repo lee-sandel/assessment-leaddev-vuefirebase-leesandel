@@ -9,7 +9,7 @@
         <v-card-text>
           <v-text-field v-model="booking.title" label="Subject"/>
           <div class="d-flex">
-            <v-text-field v-model="booking.room.title" @input="titleChange" label="Room" class="pr-4"/>
+            <v-select v-model="booking.room.title" @input="titleChange" label="Room" class="pr-4" :items="roomNames"></v-select>
             <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
           </div>
           <h5>From</h5>
@@ -31,6 +31,7 @@
 import {send} from '@/api';
 import {isValidBooking, newBooking} from '@/components/bookings';
 import DateTimePicker from '@/components/DateTimePicker.vue';
+import {mapState} from 'vuex';
 
 export default {
   name: 'BookingForm',
@@ -42,6 +43,10 @@ export default {
     };
   },
   computed: {
+    ...mapState('rooms', ['rooms']),
+    roomNames() {
+      return this.rooms.map(a => a.title);
+    },
     canSubmit() {
       return isValidBooking(this.booking);
     },
