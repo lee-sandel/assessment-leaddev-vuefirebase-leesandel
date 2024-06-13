@@ -9,7 +9,7 @@
         <v-card-text>
           <v-text-field v-model="booking.title" label="Subject"/>
           <div class="d-flex">
-            <v-select v-model="booking.room.title" @input="titleChange" label="Room" class="pr-4" :items="roomNames"></v-select>
+            <v-combobox v-model="booking.room.title" @input="titleChange" label="Room" class="pr-4" :items="roomNames"></v-combobox>
             <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
           </div>
           <h5>From</h5>
