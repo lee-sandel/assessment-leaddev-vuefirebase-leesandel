@@ -9,7 +9,15 @@
         <v-card-text>
           <v-text-field v-model="booking.title" label="Subject"/>
           <div class="d-flex">
-            <v-combobox v-model="booking.room.title" @input="titleChange" label="Room" class="pr-4" :items="roomNames"></v-combobox>
+            <v-combobox
+              v-model="booking.room.title"
+              @change="titleChange"
+              @keyup="titleChange"
+              @input.native="booking.room.title=$event.srcElement.value"
+              label="Room"
+              class="pr-4"
+              :items="roomNames"
+            />
             <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
           </div>
           <h5>From</h5>
