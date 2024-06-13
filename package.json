@@ -1,0 +1,16 @@
+{
+  "name": "assessment-leaddev-vuefirebase",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "https://github.com/vanti-dev/assessment-leaddev-vuefirebase.git",
+  "scripts": {
+    "server": "node server"
+  },
+  "dependencies": {
+    "lodash.isequal": "^4.5.0",
+    "ws": "^8.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0"
+  }
+}
