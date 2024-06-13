@@ -1,9 +1,11 @@
 <template>
   <v-app class="app-root">
     <v-app-bar app color="primary" dark>
-      <v-app-bar-title>Vanti Lead Dev Assessment</v-app-bar-title>
+      <v-toolbar-title>Vanti Lead Dev Assessment - Lee Sandel</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn class="mr-2" text>Room Bookings</v-btn>
+      <v-btn text>Settings</v-btn>
     </v-app-bar>
-
     <v-main>
       <v-container>
         <v-card>
