@@ -3,6 +3,7 @@
  */
 export interface Booking extends Document {
   title: string
+  guests: number
   fromTime: Date | string
   toTime: Date | string
   room: {

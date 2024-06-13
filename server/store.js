@@ -11,18 +11,21 @@ class Store {
       'bookings/b1': {
         title: 'Design Meeting',
         room: {ref: {path: 'rooms/boardroom'}, title: 'Boardroom'},
+        guests: 4,
         fromTime: new Date('2023-02-17T10:00:00'),
         toTime: new Date('2023-02-17T11:00:00')
       },
       'bookings/b2': {
         title: 'Board Meeting',
         room: {ref: {path: 'rooms/boardroom'}, title: 'Boardroom'},
+        guests: 6,
         fromTime: new Date('2023-02-17T12:00:00'),
         toTime: new Date('2023-02-17T14:00:00')
       },
       'bookings/b3': {
         title: 'Dev Stand-up',
         room: {ref: {path: 'rooms/m1'}, title: 'Small Meeting Room'},
+        guests: 3,
         fromTime: new Date('2023-02-17T08:00:00'),
         toTime: new Date('2023-02-17T08:30:00')
       },

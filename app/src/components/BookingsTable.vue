@@ -28,6 +28,7 @@ export default {
       return [
         {text: 'Room', value: 'room.title'},
         {text: 'Subject', value: 'title'},
+        {text: 'Guests', value: 'guests'},
         {text: 'From', value: 'fromTime'},
         {text: 'To', value: 'toTime'}
       ];
