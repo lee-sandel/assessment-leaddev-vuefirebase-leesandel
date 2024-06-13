@@ -21,6 +21,7 @@ export function newBooking() {
       ref: {path: 'rooms/boardroom'},
       title: 'Boardroom'
     },
+    guests: 2,
     fromTime: now,
     toTime: end
   };
@@ -30,10 +31,11 @@ export function newBooking() {
  * @param {Booking} b
  * @return {boolean}
  */
-export function isValidBooking(b) {
+export function isValidBooking(b, r) {
   return b.title && b.title !== '' &&
       b.room && b.room.ref.path && b.room.title &&
-      b.fromTime && b.toTime && b.fromTime < b.toTime;
+      b.fromTime && b.toTime && b.fromTime < b.toTime &&
+      b.guests > 0 && b.guests <= r.capacity;
 }
 
 function getRandomInt(min, max) {

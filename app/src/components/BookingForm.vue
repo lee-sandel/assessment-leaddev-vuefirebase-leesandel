@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       booking: newBooking(),
-      open: false
+      open: false,
+      room: null
     };
   },
   computed: {
@@ -57,7 +58,7 @@ export default {
       return this.rooms.map(a => a.title);
     },
     canSubmit() {
-      return isValidBooking(this.booking);
+      return isValidBooking(this.booking, this.selectedRoom);
     },
     roomRefPath: {
       get() {
@@ -69,6 +70,9 @@ export default {
         }
         this.booking.room.ref.path = v;
       }
+    },
+    selectedRoom() {
+      return this.rooms.filter(a => a.title === this.booking.room.title)[0];
     }
   },
   watch: {
@@ -83,7 +87,7 @@ export default {
       this.roomRefPath = this.booking.room.title ? this.booking.room.title.toLowerCase().replaceAll(' ', '-') : '';
     },
     newBooking() {
-      if (!isValidBooking(this.booking)) {
+      if (!isValidBooking(this.booking, this.selectedRoom)) {
         return;
       }
       send({
