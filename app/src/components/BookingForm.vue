@@ -20,6 +20,7 @@
             />
             <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
           </div>
+          <v-text-field type="number" min="1" v-model="booking.guests" label="Number of Guests"/>
           <h5>From</h5>
           <date-time-picker v-model="booking.fromTime"/>
           <h5>To</h5>
