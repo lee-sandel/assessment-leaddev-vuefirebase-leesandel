@@ -7,6 +7,9 @@
           <room-form/>
         </v-toolbar>
       </template>
+      <template #item.capacity="{value}">
+        <span v-if="value">{{ value }} people</span>
+      </template>
     </v-data-table>
   </v-card>
 </template>
@@ -21,6 +24,7 @@ export default {
     headers() {
       return [
         {text: 'Room', value: 'title'},
+        {text: 'Capacity', value: 'capacity'},
       ];
     }
   },

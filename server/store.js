@@ -27,13 +27,16 @@ class Store {
         toTime: new Date('2023-02-17T08:30:00')
       },
       'rooms/boardroom': {
-        title: 'Boardroom'
+        title: 'Boardroom',
+        capacity: 12
       },
       'rooms/m1': {
-        title: 'Large Meeting Room'
+        title: 'Large Meeting Room',
+        capacity: 16
       },
       'rooms/m2': {
-        title: 'Small Meeting Room'
+        title: 'Small Meeting Room',
+        capacity: 6
       }
     };
     /**

@@ -15,7 +15,8 @@ export interface Booking extends Document {
  * A room is a physical space that can be booked
  */
 export interface Room extends Document {
-  title: string
+  title: string,
+  capacity: number
 }
 
 /**
