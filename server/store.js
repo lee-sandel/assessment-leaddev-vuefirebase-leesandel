@@ -116,6 +116,18 @@ class Store {
       refId: refId
     });
   }
+
+  /**
+   * @param {DocRef} ref
+   */
+  deleteDoc(ref) {
+    console.log('[delete]: deleteDoc', ref.path);
+    delete this._data[ref.path];
+    this.bus.emit('change', {
+      ref: ref,
+      document: null
+    });
+  }
 }
 
 module.exports = {

@@ -15,6 +15,7 @@
           <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
         </v-card-text>
         <v-card-actions>
+          <v-btn text v-if="edit" color="error" @click="deleteRoom">Delete</v-btn>
           <v-spacer/>
           <v-btn text @click="closeDialog">Cancel</v-btn>
           <v-btn color="primary" :disabled="!canSubmit" type="submit">Submit</v-btn>
@@ -89,6 +90,13 @@ export default {
     closeDialog() {
       this.open = false;
       this.$emit('close');
+    },
+    deleteRoom() {
+      send({
+        type: 'delete-document',
+        ref: {path: `rooms/${this.roomRefPath}`}
+      });
+      this.closeDialog();
     }
   }
 };

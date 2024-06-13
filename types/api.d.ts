@@ -40,6 +40,14 @@ export interface EditDocumentRequest extends Request {
   document: Document
 }
 
+/**
+ * A request to delete a document value from the store
+ */
+export interface DeleteDocumentRequest extends Request {
+  type: 'delete-document'
+  ref: DocRef
+}
+
 export interface Request {
   type: string
 }

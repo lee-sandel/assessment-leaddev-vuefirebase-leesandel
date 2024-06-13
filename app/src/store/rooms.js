@@ -23,7 +23,12 @@ export default {
       state.activeRoomEdit = room;
     },
     deleteRoom(state, ref) {
-      state.rooms.pop(room => room.ref.path === ref.path);
+      for (let i = 0; i < state.rooms.length; i++) {
+        if (state.rooms[i].ref.path === ref.path) {
+          state.rooms.splice(i, 1);
+          break;
+        }
+      }
     }
   },
   actions: {

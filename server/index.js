@@ -57,6 +57,9 @@ wss.on('connection', ws => {
           const newRef = req.ref;
           store.editDoc(refId, newRef, req.document);
           break;
+        case 'delete-document':
+          store.deleteDoc(req.ref);
+          break;
         }
   }
 
