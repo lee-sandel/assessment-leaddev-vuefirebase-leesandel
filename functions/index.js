@@ -22,7 +22,8 @@ const autoRoomCreation = (change, store) => {
   if (change.ref.path.startsWith('bookings/') && store.getDoc(change.document.room.ref) === undefined) {
     console.log(`[autoRoomCreation] creating room: ${change.document.room.ref.path}'`);
     store.setDoc(change.document.room.ref, {
-      title: change.document.room.title
+      title: change.document.room.title,
+      capacity: change.document.guests
     });
   }
 };

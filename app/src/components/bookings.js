@@ -35,7 +35,7 @@ export function isValidBooking(b, r) {
   return b.title && b.title !== '' &&
       b.room && b.room.ref.path && b.room.title &&
       b.fromTime && b.toTime && b.fromTime < b.toTime &&
-      b.guests > 0 && b.guests <= r.capacity;
+      b.guests > 0 && (!r || b.guests <= r.capacity);
 }
 
 function getRandomInt(min, max) {
