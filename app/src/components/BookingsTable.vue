@@ -1,5 +1,5 @@
 <template>
-  <v-data-table :headers="headers" :items="bookingsList">
+  <v-data-table :headers="headers" :items="bookings">
     <template #top>
       <v-toolbar flat dense>
         <v-spacer/>
@@ -24,9 +24,6 @@ export default {
   components: {BookingForm},
   computed: {
     ...mapState('bookings', ['bookings']),
-    bookingsList() {
-      return Object.values(this.bookings);
-    },
     headers() {
       return [
         {text: 'Room', value: 'room.title'},

@@ -3,16 +3,16 @@ import {send} from '@/api';
 export default {
   namespaced: true,
   state: {
-    bookings: {}
+    bookings: [],
   },
   mutations: {
     setBooking(state, {ref, doc}) {
-      state.bookings[ref] = doc;
+      state.bookings.push(doc);
     },
     setBookings(state, docs) {
-      const bookings = {};
+      const bookings = [];
       for (const {ref, document} of docs) {
-        bookings[ref.path] = document;
+        bookings.push(document);
       }
       state.bookings = bookings;
     }
