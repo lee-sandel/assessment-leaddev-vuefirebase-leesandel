@@ -8,9 +8,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <v-card>
-          <bookings-table/>
-        </v-card>
+        <router-view/>
       </v-container>
     </v-main>
   </v-app>
