@@ -9,6 +9,7 @@
         <v-card-text>
           <v-text-field v-model="booking.title" label="Subject"/>
           <div class="d-flex">
+            <v-text-field type="number" min="1" v-model="booking.guests" label="Number of Guests" class="pr-4"/>
             <v-combobox
               v-model="booking.room.title"
               @change="titleChange"
@@ -18,9 +19,8 @@
               class="pr-4"
               :items="roomNames"
             />
-            <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
           </div>
-          <v-text-field type="number" min="1" v-model="booking.guests" label="Number of Guests"/>
+          <v-text-field v-model="roomRefPath" label="Reference" prefix="rooms/"/>
           <h5>From</h5>
           <date-time-picker v-model="booking.fromTime"/>
           <h5>To</h5>
@@ -55,7 +55,7 @@ export default {
   computed: {
     ...mapState('rooms', ['rooms']),
     roomNames() {
-      return this.rooms.map(a => a.title);
+      return this.rooms.filter(a => a.capacity >= this.booking.guests).map(a => a.title);
     },
     canSubmit() {
       return isValidBooking(this.booking, this.selectedRoom);
