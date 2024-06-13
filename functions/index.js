@@ -14,10 +14,25 @@ const example = (change, store) => {
 };
 
 /**
+ * If a booking references a room name that is not in the store, this function will add it 
+ *
+ * @type {ChangeFunc}
+ */
+const autoRoomCreation = (change, store) => {
+  if (change.ref.path.startsWith('bookings/') && store.getDoc(change.document.room.ref) === undefined) {
+    console.log(`[autoRoomCreation] creating room: ${change.document.room.ref.path}'`);
+    store.setDoc(change.document.room.ref, {
+      title: change.document.room.title
+    });
+  }
+};
+
+/**
  * Any function exported here will be called whenever there is a data change in the store.
  *
  * @type {Object<string, ChangeFunc>}
  */
 module.exports = {
-  example
+  example,
+  autoRoomCreation
 };
