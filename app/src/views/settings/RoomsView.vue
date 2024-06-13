@@ -6,7 +6,7 @@
       </v-card>
     </template>
     <template v-slot:right-content>
-      Room Management
+      <rooms-table/>
     </template>
   </sidebar-layout>
 </template>
@@ -14,5 +14,6 @@
 <script setup>
   import SidebarLayout from '@/layouts/SidebarLayout.vue';
   import SettingsMenu from '@/components/menus/SettingsMenu.vue';
+  import RoomsTable from '@/components/RoomsTable.vue';
 </script>
   
