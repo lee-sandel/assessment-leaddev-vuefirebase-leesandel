@@ -52,7 +52,12 @@ wss.on('connection', ws => {
         }
         store.setDoc(ref, req.document);
         break;
-    }
+        case 'edit-document':
+          const refId = req.refId;
+          const newRef = req.ref;
+          store.editDoc(refId, newRef, req.document);
+          break;
+        }
   }
 
   ws.on('error', console.error);

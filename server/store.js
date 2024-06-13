@@ -89,6 +89,33 @@ class Store {
       document: data
     });
   }
+
+  /**
+   * @param {DocRef} refId
+   * @param {DocRef} ref
+   * @param {Document} data
+   */
+  editDoc(refId, ref, data) {
+    console.log('[store]: editDoc', refId.path);
+    const prev = this.getDoc(refId);
+    delete this._data[refId.path];
+    data.ref = ref;
+    this._data[ref.path] = data;
+    const shallowCopy = {...data};
+    delete shallowCopy.lastWrittenTime;
+    if (isEqual(prev, shallowCopy)) {
+      return;
+    }
+    this.bus.emit('change', {
+      ref: refId,
+      document: null
+    });
+    this.bus.emit('change', {
+      ref,
+      document: data,
+      refId: refId
+    });
+  }
 }
 
 module.exports = {

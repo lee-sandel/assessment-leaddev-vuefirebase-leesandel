@@ -30,6 +30,16 @@ export interface SetDocumentRequest extends Request {
   document: Document
 }
 
+/**
+ * A request to edit a document value in the store
+ */
+export interface EditDocumentRequest extends Request {
+  type: 'edit-document'
+  refId: DocRef
+  ref: DocRef
+  document: Document
+}
+
 export interface Request {
   type: string
 }

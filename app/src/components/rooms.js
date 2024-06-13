@@ -1,7 +1,12 @@
+import {store} from '../store'
+
 /**
  * @return {Room}
  */
 export function newRoom() {
+  if(store.state.rooms.activeRoomEdit) {
+    return store.state.rooms.activeRoomEdit
+  }
   return {
     title: '',
     capacity: 4,
