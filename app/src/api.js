@@ -20,8 +20,5 @@ ws.addEventListener('open', () => {
  * @param {Request} msg
  */
 export function send(msg) {
-  if (msg.document && msg.document.ref) {
-    delete msg.document.ref;
-  }
   ws.send(JSON.stringify(msg));
 }
