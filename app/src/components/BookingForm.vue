@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     titleChange() {
-      this.roomRefPath = this.booking.room.title.toLowerCase().replaceAll(' ', '-');
+      this.roomRefPath = this.booking.room.title ? this.booking.room.title.toLowerCase().replaceAll(' ', '-') : '';
     },
     newBooking() {
       if (!isValidBooking(this.booking)) {
