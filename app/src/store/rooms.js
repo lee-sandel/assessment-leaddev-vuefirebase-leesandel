@@ -22,6 +22,12 @@ export default {
     setActiveRoomEdit(state, room) {
       state.activeRoomEdit = room;
     },
+    updateRoom(state, {ref, refId, doc}) {
+      const room = state.rooms.find(room => room.ref.path === refId.path);
+      if (room) {
+        Object.assign(room, doc);
+      }
+    },
     deleteRoom(state, ref) {
       for (let i = 0; i < state.rooms.length; i++) {
         if (state.rooms[i].ref.path === ref.path) {
@@ -42,7 +48,10 @@ export default {
       root: true,
       handler({commit}, msg) {
         if (msg.ref.path.includes('rooms')) {
-          if (msg.documents) {
+          console.log(msg)
+          if(msg.refId) {
+            commit('updateRoom', {ref: msg.ref, refId: msg.refId, doc: msg.document})
+          } else if (msg.documents) {
             commit('setRooms', msg.documents);
           } else if (msg.document) {
             commit('setRoom', {ref: msg.ref, doc: msg.document});

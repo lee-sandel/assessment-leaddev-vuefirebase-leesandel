@@ -104,10 +104,6 @@ class Store {
     data.ref = ref;
     this._data[ref.path] = data;
     this.bus.emit('change', {
-      ref: refId,
-      document: null
-    });
-    this.bus.emit('change', {
       ref,
       document: data,
       refId: refId
